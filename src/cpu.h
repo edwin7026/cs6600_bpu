@@ -13,8 +13,8 @@
 #include <sstream>
 
 // local includes
-#include <base.h>
 #include <common.h>
+#include <bpu.h>
 
 /**
  * @details This struct holds the info from trace file
@@ -22,8 +22,8 @@
 struct if_packet
 {
     unsigned b_addr;
-    unsigned is_taken;
-    if_packet() : b_addr(0), is_taken(0) {}
+    bool is_taken;
+    if_packet() : b_addr(0), is_taken(false) {}
 };
 
 /**
@@ -34,12 +34,14 @@ class cpu : base
     private:
         std::string _trace_file_path;
         logger _log;
+        
+        // pointer to the instantiated bpu
+        bpu* _bpu_inst;
     public:
-
         /**
          * @details Constructor that takes in path of the trace file and logger
          */
-        cpu(const std::string& path, const logger& log);
+        cpu(const std::string& path, const logger& log, bpu* bpu_inst);
 
         /**
          * @details Sequencer that sequences memory accesses
