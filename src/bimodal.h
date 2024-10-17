@@ -33,7 +33,7 @@ class bimodal : public bpu
             // increment number of predictions
             inc_num_predictions();
             
-            uint index = (pc >> 2) % _num_entries;
+            unsigned index = (pc >> 2) % _num_entries;
             if (_pred_table[index] > 1) {
                 _log.log(this, verbose::DEBUG, "Index: " + std::to_string(index) + " Predicting branch is taken");
                 return true;
@@ -50,7 +50,7 @@ class bimodal : public bpu
         virtual void update(unsigned pc, bool is_taken)
         {
             // get index
-            uint index = (pc >> 2) % _num_entries;
+            unsigned index = (pc >> 2) % _num_entries;
 
             _log.log(this, verbose::DEBUG, "Updating counter for index: " + std::to_string(index));
 

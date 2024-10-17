@@ -11,6 +11,7 @@
 // local imports
 #include <cpu.h>
 #include <bimodal.h>
+#include <gshare.h>
 
 #include <common.h>
 
@@ -21,7 +22,7 @@ int main(int argc, char* argv[])
 
     // print out command
     std::cout << "COMMAND" << std::endl;
-    for (unsigned i=0; i < argc; i++)
+    for (int i=0; i < argc; i++)
         std::cout << argv[i] << " ";
     std::cout << std::endl;
 
@@ -49,7 +50,8 @@ int main(int argc, char* argv[])
     else if (bpu_type == std::string("gshare")) {
         m_param = std::stoul(argv[2]);
         n_param = std::stoul(argv[3]);
-        trace_file_path = argv[3];
+        trace_file_path = argv[4];
+        bpu_inst = new gshare("GSHARE", log, m_param, n_param);
     } 
     else 
     {
