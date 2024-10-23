@@ -98,8 +98,8 @@ class gshare : public bpu
                 _param_m(param_m),
                 _param_n(param_n),
                 _num_entries(static_cast<unsigned>(pow(2, param_m))),
-                _global_bh_reg(0),
                 _gbhr_mask(_param_n == 0 ? 0 : 1<<(_param_n-1)),
+                _global_bh_reg(0),
                 _global_bh_table(_num_entries, 2) {}
 };
 
