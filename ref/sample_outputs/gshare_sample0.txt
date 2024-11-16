@@ -1,0 +1,23 @@
+COMMAND
+./bpsim gshare 4 2 sample_trace.txt
+OUTPUT
+number of predictions:  25
+number of mispredictions:       11
+misprediction rate:     44.00%
+FINAL   GSHARE CONTENTS
+0       0
+1       2
+2       0
+3       2
+4       2
+5       3
+6       2
+7       3
+8       2
+9       2
+10      2
+11      1
+12      2
+13      3
+14      2
+15      2
